@@ -1,0 +1,38 @@
+{
+  "name": "accjs-x-space",
+  "version": "1.0.0",
+  "description": "accjs for x-space.taobao.com",
+  "main": "dist/content_script.js",
+  "scripts": {
+    "build": "node main.js",
+    "compile": "rollup -c && rollup -c --config:minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qt06/accjs-x-space.git"
+  },
+  "keywords": [
+    "accjs",
+    "x-space",
+    "jquery",
+    "dom"
+  ],
+  "author": "qt06",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qt06/accjs-x-space/issues"
+  },
+  "homepage": "https://github.com/qt06/accjs-x-space#readme",
+  "devDependencies": {
+    "minimist": "^1.2.5",
+    "rollup": "^2.21.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "shelljs": "^0.8.4"
+  },
+  "dependencies": {
+    "accjs-kit": "^1.0.0",
+    "mousetrap": "^1.6.5"
+  }
+}

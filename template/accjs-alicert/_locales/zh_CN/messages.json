@@ -1,0 +1,7 @@
+{
+	"pluginName": {"message": "阿里认证无障碍优化"},
+	"pluginDesc": {"message": "对阿里认证进行了无障碍访问优化。"},
+	"pluginHasAcc": {"message": "已进行无障碍优化"},
+	"pluginAuthor": {"message": "杨永全"},
+	"helloWorld": {"message": "你好啊，世界！"}
+}
