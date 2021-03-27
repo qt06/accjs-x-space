@@ -24,21 +24,24 @@ sop: '解决方案'
 };
 const hotkeySelectorConfig = {
 message_input: ['.chat-input .editable'],
-first_member: ['.chat-contact-item'],
-search_input: ['.ali-x-section-search input[type=search], .ah-solution-components-searcher--container .ant-input, .app-business-view .ant-input'],
-close_dialogue: ['[data-tooltip="结束"]'],
+first_member: ['[class*=mc-infoDetail--], .chat-contact-item'], //'[class*=mc-infoDetail--], .chat-contact-item'],
+search_input: ['.ali-x-section-search input[type=search], .ah-solution-components-searcher--container .ant-input, .app-business-view .ant-input, input[placeholder="搜索问题"]'],
+close_dialogue: ['.call-out-in .btn-orange, [data-tooltip="结束"]'],
 last_message: ['.chat-message, .chat-system-message'],
-sop: ['[data-role="xsop-node-titleContainer"], .ali-x-section-title, .recommend-list, .tradeDetailView']
+sop: ['[class*=components-nodelist--container], [data-role="xsop-node-titleContainer"], .ali-x-section-title, .recommend-list, .tradeDetailView']
 };
 
 const navLabels = {
 "首页": "system/dashboard",
 "通知": "system/notify",
 "在线工作台": "system/IM",
+"工单中心": "system/case-search-next",
 "工单": "system/ticket-search",
 "班务管理": "system/workshift",
 "新云小家": "system/ehome-task",
+"客户中心": "system/c360-view",
 "标注": "system/annotation",
+"服务中": "system/xdesk",
 "设置": "system/xspace-bss",
 "我的小程序……": "system/xapp-market",
 "意见反馈": "xspace-feedback-btn",
@@ -48,6 +51,7 @@ const navLabels = {
 "反馈": "xfeedback",
 "培训": "im-bot",
 "常用链接": "bookmark",
+"搜索": "search-bar-switch",
 "我的状态": "im-widget",
 "查看绩效": "workinfo-subtotal",
 "我的信息": "profile-avatar"

@@ -2,7 +2,7 @@
 import $ from 'accjs-kit';
 const im = function() {
 //chat-message
-$('.chatting-list .sub-title:not(.' + accjsHas + '), .history-list .sub-title:not(.' + accjsHas + ')')
+$('[class*=mc-groupName--]:not(.' + accjsHas + '), [class*=mc-infoDetail--]:not(.' + accjsHas + '), .chatting-list .sub-title:not(.' + accjsHas + '), .history-list .sub-title:not(.' + accjsHas + ')')
 .addClass(accjsHas)
 .attr({
 "role": "link",
@@ -37,6 +37,22 @@ $('a.go-example-btn')
 .attr('tabindex', '0');
 //chat-message end
 
+//9 cells
+$('[data-c-l-i*="scene-item"]:not(.' + accjsHas + ')')
+.addClass(accjsClick + ' accesskey-first ' + accjsHas)
+.attr({
+"tabindex": "0",
+"role": "group"
+});
+$('[data-c-l-i*="scene-subitem"]:not(.' + accjsHas + ')')
+.addClass(accjsClick + ' accesskey-second ' + accjsHas)
+.attr({
+"tabindex": "0",
+"role": "group"
+});
+
+//9 cells end
+
 //editor
 $('[data-tooltip]:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
@@ -68,7 +84,7 @@ $('[data-tooltip=结束]')
 //end close conversation
 
 //solp
-$('.ant-tabs-tabpane').attr('aria-hidden', 'false');
+$('div, span, input, button').attr('aria-hidden', 'false');
 $('.ant-cascader-menu-item:not(.' + accjsHas + '), .ah-solution-components-home-faults--trigger:not(.' + accjsHas + '), .ah-solution-components-question--title:not(.' + accjsHas + '), .question-item-title:not(.' + accjsHas + '), .ali-x-field-name:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({

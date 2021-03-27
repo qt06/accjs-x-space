@@ -54,6 +54,57 @@ snd('submit1.mp3');
 }
 //end qb
 }
+
+
+function isVisible(t) {
+  return !! (!t.hasAttribute('disabled') && t.getAttribute('aria-hidden') !== 'true' && t.offsetParent !== null);
+}
+
+function gi(i, len, op) {
+  let n = op == '+' ? +1 : -1;
+  i = i + n;
+  if (i >= len) {
+    i = 0;
+  }
+  if (i < 0) {
+    i = len - 1;
+  }
+  return i;
+}
+
+function _toFocus(el) {
+  let tagName = el.tagName.toLowerCase();
+  let tagNames = ['div', 'p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'form', 'img', 'nav', 'header', 'main', 'footer', 'section', 'aside'];
+  if (tagNames.includes(tagName) || (tagName == 'a' && !el.hasAttribute('href'))) {
+    if (!el.hasAttribute('tabindex')) {
+      el.setAttribute('tabindex', '-1');
+    }
+  }
+  el.focus();
+}
+
+function toFocus(focusSelector, op) {
+  let els = [...document.body.querySelectorAll('*')];
+  let len = els.length;
+  let aeIndex = Math.max(0, els.indexOf(document.activeElement));
+  let i = aeIndex == 0 ? 0 : gi(aeIndex, len, op);
+  do {
+    if (els[i].matches(focusSelector) && isVisible(els[i])) {
+      _toFocus(els[i]);
+      break;
+    }
+    i = gi(i, len, op);
+  } while ( i != aeIndex );
+}
+
+function nextFocus(selector) {
+  toFocus(selector, '+');
+}
+
+function previousFocus(selector) {
+  toFocus(selector, '-');
+}
+
 document.body.addEventListener('keyup', (e)=> {
 if(e.keyCode == 9) {
 e.stopPropagation();
@@ -75,9 +126,14 @@ waitingFocus(this.getAttribute('data-' + accjsWaitingFocus));
 		for(let it in items) {
 			if(it == 'first_member') {
 Mousetrap.bind(items[it], function() {
-let m = $('.chat-contact-item');
+let m = $('[class*=mc-infoDetail--], .chat-contact-item');
 if(m.length > 0) {
-m[0].focus();
+for(let i = 0; i < m.length; i++) {
+if($.isVisible(m[i])) {
+m[i].focus();
+break;
+}
+}
 }
 return false;
 });
@@ -179,7 +235,35 @@ this.focus();
 		}
 	});
 
+// 9 cells
+Mousetrap.bind('ctrl+right', function() {
+nextFocus('.accesskey-first');
+return false;
+});
+Mousetrap.bind('ctrl+left', function() {
+previousFocus('.accesskey-first');
+return false;
+});
+Mousetrap.bind('ctrl+down', function() {
+nextFocus('.accesskey-second');
+return false;
+});
+Mousetrap.bind('ctrl+up', function() {
+previousFocus('.accesskey-second');
+return false;
+});
 
+//9 cells end
+
+Mousetrap.bind('alt+a', function() {
+let els = $('li[data-xt*="phone-next"] [role=link]');
+if(els.length > 0 && $.isVisible(els[0])) {
+els[0].focus();
+}
+return false;
+});
+
+/**
 Mousetrap.bind('a q', function() {
 qb();
 return false;
@@ -197,6 +281,6 @@ return false;
 isAutoRefresh = ffalse;
 }
 });
-
+*/
 accjsMutationObserver(workBenchProcess);
 

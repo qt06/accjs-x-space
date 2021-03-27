@@ -18,6 +18,10 @@ $('.ant-switch:not(.ant-switch-checked)').attr({
 $('.ant-switch-checked').attr({
 "aria-label": "已开启"
 });
+$('.telephone-workstatus-list div').addClass(accjsClick).attr({
+"tabindex": "0",
+"role": "link"
+});
 };
 //status end
 export {

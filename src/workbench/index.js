@@ -13,7 +13,7 @@ if(hash.includes('system/workshift')) {
 workshift();
 }
 
-if(hash.includes('system/ticket-search')) {
+if(hash.includes('system/case-search-next') || hash.includes('system/ticket-search')) {
 ticket();
 }
 

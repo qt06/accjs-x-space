@@ -15,7 +15,7 @@ workshift();
 ws();
 }
 
-if(hash.includes('system/ticket-search')) {
+if(hash.includes('system/case-search-next') || hash.includes('system/ticket-search')) {
 ticket();
 }
 
@@ -23,7 +23,7 @@ if(hash.includes('system/notify')) {
 notification();
 }
 
-if(hash.includes('system/IM')) {
+if(hash.includes('system/xdesk') || hash.includes('system/IM')) {
 im();
 }
 
