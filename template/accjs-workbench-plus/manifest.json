@@ -26,6 +26,11 @@
 			"run_at": "document_end"
 		},
 		{
+			"matches": ["https://h5.m.taobao.com/xspace-component-mobile-workshift/*"],
+			"js": ["js/mousetrap.min.js", "js/workshift-mobile.min.js"],
+			"run_at": "document_end"
+		},
+		{
 			"matches": ["https://alicert.taobao.com/cert-cloud/*"],
 			"js": ["js/mousetrap.min.js", "js/learning.min.js"],
 			"run_at": "document_end"

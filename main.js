@@ -19,6 +19,8 @@ shell.cp(current_dir + '/dist/workbench-plus.min.js', 'dist/accjs-workbench-plus
 shell.cp(current_dir + '/dist/workbench-plus.min.js.map', 'dist/accjs-workbench-plus/js/');
 shell.cp(current_dir + '/dist/*options.min.js', 'dist/accjs-workbench-plus/js/');
 shell.cp(current_dir + '/dist/*options.min.js.map', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workbench-plus/js/');
 shell.cp(current_dir + '/dist/exam.min.js', 'dist/accjs-workbench-plus/js/');
 shell.cp(current_dir + '/dist/exam.min.js.map', 'dist/accjs-workbench-plus/js/');
 shell.cp(current_dir + '/dist/learning.min.js', 'dist/accjs-workbench-plus/js/');
@@ -32,6 +34,8 @@ shell.cp(current_dir + '/dist/workbench-full.min.js', 'dist/accjs-workbench-full
 shell.cp(current_dir + '/dist/workbench-full.min.js.map', 'dist/accjs-workbench-full/js/');
 shell.cp(current_dir + '/dist/*options.min.js', 'dist/accjs-workbench-full/js/');
 shell.cp(current_dir + '/dist/*options.min.js.map', 'dist/accjs-workbench-full/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workbench-full/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workbench-full/js/');
 shell.cp(current_dir + '/dist/exam.min.js', 'dist/accjs-workbench-full/js/');
 shell.cp(current_dir + '/dist/exam.min.js.map', 'dist/accjs-workbench-full/js/');
 shell.cp(current_dir + '/dist/learning.min.js', 'dist/accjs-workbench-full/js/');
@@ -47,6 +51,8 @@ shell.cp(current_dir + '/dist/options.min.js', 'dist/accjs-workbench/js/');
 shell.cp(current_dir + '/dist/options.min.js.map', 'dist/accjs-workbench/js/');
 shell.cp(current_dir + '/dist/hotkey-options.min.js', 'dist/accjs-workbench/js/');
 shell.cp(current_dir + '/dist/hotkey-options.min.js.map', 'dist/accjs-workbench/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workbench/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workbench/js/');
 
 //workgshift files
 shell.cp(current_dir + '/node_modules/mousetrap/mousetrap.min.js', 'dist/accjs-workshift/js/');
@@ -56,6 +62,8 @@ shell.cp(current_dir + '/dist/options.min.js', 'dist/accjs-workshift/js/');
 shell.cp(current_dir + '/dist/options.min.js.map', 'dist/accjs-workshift/js/');
 shell.cp(current_dir + '/dist/workshift-options.min.js', 'dist/accjs-workshift/js/');
 shell.cp(current_dir + '/dist/workshift-options.min.js.map', 'dist/accjs-workshift/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workshift/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workshift/js/');
 
 //alicert files
 shell.cp(current_dir + '/node_modules/mousetrap/mousetrap.min.js', 'dist/accjs-alicert/js/');
