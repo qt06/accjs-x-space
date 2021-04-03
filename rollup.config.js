@@ -18,13 +18,10 @@ return {
   ]
 }};
 export default [
-build('workbench-plus'),
-build('workbench-full'),
 build('workbench'),
 build('options'),
 build('hotkey-options'),
 build('workshift-options'),
-build('workshift'),
 build('workshift-mobile'),
 build('exam'),
 build('survey'),

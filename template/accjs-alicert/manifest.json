@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"default_locale": "zh_CN",
 	"name": "__MSG_pluginName__",
-	"version": "2.0",
+	"version": "3.0",
 	"description": "__MSG_pluginDesc__",
 	"author": "__MSG_pluginAuthor__",
 	"homepage_url": "http://www.qt06.com",

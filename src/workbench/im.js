@@ -70,7 +70,19 @@ $('.chat-input .editable:not(.' + accjsHas + ')')
 });
 //editor end
 
+//toolbar
+$('.tool-bar button[data-title]').attr({
+"aria-label": function() { return $(this).attr('data-title'); }
+});
+
+//end toolbar
+
 //transfer
+$('.tool-bar .icon-export:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
+"aria-label": "转交会话",
+"role": "button",
+"tabindex": "-1"
+});
 $('[data-tooltip=转交]')
 .attr('data-' + accjsWaitingFocus, '.im-transfer-popover');
 $('.chat-transfer-form .ant-input').attr({
@@ -79,12 +91,17 @@ $('.chat-transfer-form .ant-input').attr({
 //end transfer
 
 //close conversation
+$('.tool-bar .icon-poweroff:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
+"aria-label": "关闭会话",
+"role": "button",
+"tabindex": "-1"
+}).attr('data-' + accjsWaitingFocus, '.ant-popover-buttons .ant-btn-primary');
 $('[data-tooltip=结束]')
 .attr('data-' + accjsWaitingFocus, '.close-confirm .ant-btn-primary');
 //end close conversation
 
 //solp
-$('div, span, input, button').attr('aria-hidden', 'false');
+$('div, span, input, button').removeAttr('aria-hidden');
 $('.ant-cascader-menu-item:not(.' + accjsHas + '), .ah-solution-components-home-faults--trigger:not(.' + accjsHas + '), .ah-solution-components-question--title:not(.' + accjsHas + '), .question-item-title:not(.' + accjsHas + '), .ali-x-field-name:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({

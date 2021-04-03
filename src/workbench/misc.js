@@ -12,8 +12,8 @@ $('.im-bot-widget-index-popover span, .trainning-popover-menu span')
 
 //misc
 //don't switch the position of the below two lines
-$('[role=grid], [role=tablist], [role=tabpanel], [role=presentation]').removeAttr('tabindex');
-$('[role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
+$('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation]').removeAttr('tabindex');
+$('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
 $('[role=tab]:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({
@@ -29,12 +29,11 @@ $('.ant-menu-item')
 });
 //$('li[role=menuitem]').removeAttr('role');
 //$('.react-contextmenu-item').removeAttr('role');
-$('.anticon, .ant-tabs-tab-prev-icon, .ant-tabs-tab-next-icon, .assistant-solution-iconfont')
-.attr({
-"aria-hidden": "true"
-});
-$('[role="dialog"] div[tabindex]').removeAttr('tabindex');
-$('[role="document"]').removeAttr('document');
+//$('.anticon, .ant-tabs-tab-prev-icon, .ant-tabs-tab-next-icon, .assistant-solution-iconfont')
+//.attr({
+//"aria-hidden": "true"
+//});
+$('.ant-modal-wrap div[tabindex]').removeAttr('tabindex');
 $('input.ant-calendar-range-picker-input').removeAttr('tabindex');
 //misc
 };

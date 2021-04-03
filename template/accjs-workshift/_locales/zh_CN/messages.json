@@ -1,7 +1,0 @@
-{
-	"pluginName": {"message": "选班"},
-	"pluginDesc": {"message": "选班"},
-	"pluginHasAcc": {"message": "qb"},
-	"pluginAuthor": {"message": "杨永全"},
-	"helloWorld": {"message": "你好啊，世界！"}
-}

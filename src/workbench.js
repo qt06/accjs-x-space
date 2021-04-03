@@ -1,13 +1,63 @@
 ﻿import {hotkeyConfig, hotkeySelectorConfig} from './constants';
-import {accjsClick, accjsWaitingFocus} from './accjs-constants';
+import {accjsClick, accjsWaitingFocus, accjsCheckbox, accjsAutoChecked} from './accjs-constants';
 import workBenchProcess from './workbench/index';
-import {accjsMutationObserver, registerHotkey, waitingFocus } from './functions';
+import {accjsMutationObserver, registerHotkey, waitingFocus, snd} from './functions';
 import $ from 'accjs-kit';
-	document.title = document.title + ' - ' + chrome.i18n.getMessage('pluginHasAcc');
+
 window.onerror = function(msg, url, line) {
 	alert("error: "+msg+"\r\n line: "+line+"\r\n url: "+url);
 	return false;
 };
+
+function isVisible(t) {
+  return !! (!t.hasAttribute('disabled') && t.getAttribute('aria-hidden') !== 'true' && t.offsetParent !== null);
+}
+
+function gi(i, len, op) {
+  let n = op == '+' ? +1 : -1;
+  i = i + n;
+  if (i >= len) {
+    i = 0;
+  }
+  if (i < 0) {
+    i = len - 1;
+  }
+  return i;
+}
+
+function _toFocus(el) {
+  let tagName = el.tagName.toLowerCase();
+  let tagNames = ['div', 'p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'form', 'img', 'nav', 'header', 'main', 'footer', 'section', 'aside'];
+  if (tagNames.includes(tagName) || (tagName == 'a' && !el.hasAttribute('href'))) {
+    if (!el.hasAttribute('tabindex')) {
+      el.setAttribute('tabindex', '-1');
+    }
+  }
+  el.focus();
+}
+
+function toFocus(focusSelector, op) {
+  let els = [...document.body.querySelectorAll('*')];
+  let len = els.length;
+  let aeIndex = Math.max(0, els.indexOf(document.activeElement));
+  let i = aeIndex == 0 ? 0 : gi(aeIndex, len, op);
+  do {
+    if (els[i].matches(focusSelector) && isVisible(els[i])) {
+      _toFocus(els[i]);
+      break;
+    }
+    i = gi(i, len, op);
+  } while ( i != aeIndex );
+}
+
+function nextFocus(selector) {
+  toFocus(selector, '+');
+}
+
+function previousFocus(selector) {
+  toFocus(selector, '-');
+}
+
 document.body.addEventListener('keyup', (e)=> {
 if(e.keyCode == 9) {
 e.stopPropagation();
@@ -27,15 +77,22 @@ waitingFocus(this.getAttribute('data-' + accjsWaitingFocus));
 });
 	chrome.storage.sync.get(hotkeyConfig, function(items) {
 		for(let it in items) {
-			if(it == 'first_member') {
+			switch(it) {
+			case 'first_member':
 Mousetrap.bind(items[it], function() {
-let m = $('.chat-contact-item');
+let m = $('[class*=mc-infoDetail--], .chat-contact-item');
 if(m.length > 0) {
-m[0].focus();
+for(let i = 0; i < m.length; i++) {
+if($.isVisible(m[i])) {
+m[i].focus();
+break;
+}
+}
 }
 return false;
 });
-			} else if(it == 'last_message') {
+			break;
+			case 'last_message':
 Mousetrap.bind(items[it], function() {
 let m = $('.chat-message, .chat-system-message');
 if(m.length > 0) {
@@ -48,7 +105,8 @@ return false;
 }
 return false;
 });
-  			} else if(it == 'yw') {
+			break;
+			case 'yw':
   Mousetrap.bind(items[it], function() {
   $('.ant-tabs-tab').each(function() {
   if(this.innerText.includes('业务视图')) {
@@ -86,7 +144,8 @@ return false;
   }
   });
   });
-			} else if(it == 'fc') {
+			break;
+			case 'fc':
 Mousetrap.bind(items[it], function() {
 $('.ant-tabs-tab').each(function() {
 if(this.innerText.includes('方寸')) {
@@ -97,7 +156,8 @@ return false;
 }
 });
 });
-			} else if(it == 'try_to_locate') {
+			break;
+			case 'try_to_locate':
 Mousetrap.bind(items[it], function() {
 $(hotkeySelectorConfig['search_input'][0]).each(function() {
 let val = '';
@@ -114,7 +174,8 @@ return false;
 });
 return false;
 });
-			} else if(it == 'auto_fill') {
+			break;
+			case 'auto_fill':
 Mousetrap.bind(items[it], function() {
 let ae = document.activeElement;
 if(ae !== null) {
@@ -127,11 +188,48 @@ this.focus();
 });
 }
 });
-			} else {
+			break;
+			case 'line_up':
+Mousetrap.bind(items[it], function() {
+let els = $('li[data-xt*="phone-next"] [role=link]');
+if(els.length > 0 && $.isVisible(els[0])) {
+els[0].focus();
+}
+return false;
+});
+			break;
+// 9 cells
+			case 'next_cell_first':
+Mousetrap.bind(items[it], function() {
+nextFocus('.accesskey-first');
+return false;
+});
+			break;
+			case 'previous_cell_first':
+Mousetrap.bind(items[it], function() {
+previousFocus('.accesskey-first');
+return false;
+});
+			break;
+			case 'next_cell_second':
+Mousetrap.bind(items[it], function() {
+nextFocus('.accesskey-second');
+return false;
+});
+			break;
+			case 'previous_cell_second':
+Mousetrap.bind(items[it], function() {
+previousFocus('.accesskey-second');
+return false;
+});
+			break;
+//9 cells end
+			default:
 				registerHotkey(items[it], ...hotkeySelectorConfig[it]);
+			break;
 			}
 		}
 	});
 
-accjsMutationObserver(workBenchProcess);
 
+accjsMutationObserver(workBenchProcess);
