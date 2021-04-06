@@ -71,7 +71,7 @@ $('.chat-input .editable:not(.' + accjsHas + ')')
 //editor end
 
 //toolbar
-$('.tool-bar button[data-title]').attr({
+$('.tool-bar button[data-title]:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
 "aria-label": function() { return $(this).attr('data-title'); }
 });
 
@@ -91,7 +91,7 @@ $('.chat-transfer-form .ant-input').attr({
 //end transfer
 
 //close conversation
-$('.tool-bar .icon-poweroff:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
+$('.tool-bar .close-session:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
 "aria-label": "关闭会话",
 "role": "button",
 "tabindex": "-1"

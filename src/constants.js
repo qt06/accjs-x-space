@@ -36,7 +36,7 @@ const hotkeySelectorConfig = {
 message_input: ['.chat-input .editable'],
 first_member: ['[class*=mc-infoDetail--], .chat-contact-item'], //'[class*=mc-infoDetail--], .chat-contact-item'],
 search_input: ['.ali-x-section-search input[type=search], .ah-solution-components-searcher--container .ant-input, .app-business-view .ant-input, input[placeholder="搜索问题"]'],
-close_dialogue: ['.tool-bar .icon-poweroff, .call-out-in .btn-orange, [data-tooltip="结束"]'],
+close_dialogue: ['.tool-bar .close-session, .call-out-in .btn-orange, [data-tooltip="结束"]'],
 last_message: ['.chat-message, .chat-system-message'],
 sop: ['[class*=components-nodelist--container], [data-role="xsop-node-titleContainer"], .ali-x-section-title, .recommend-list, .tradeDetailView'],
 next_cell_first: [''],

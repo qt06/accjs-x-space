@@ -1,3 +1,4 @@
+const compressing = require('compressing');
 const fs = require('fs');
 const shell = require('shelljs');
 const current_dir = __dirname;
@@ -13,39 +14,34 @@ shell.cp('-rf', current_dir + '/template/accjs-alicert', 'dist/');
 
 //workbench-plus files
 shell.cp(current_dir + '/node_modules/mousetrap/mousetrap.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/workbench.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/workbench.min.js.map', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/*options.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/*options.min.js.map', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/exam.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/exam.min.js.map', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/learning.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/learning.min.js.map', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/survey.min.js', 'dist/accjs-workbench-plus/js/');
-shell.cp(current_dir + '/dist/survey.min.js.map', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/workbench.min.*', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/*options.min.*', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.*', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/exam.min.*', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/learning.min.*', 'dist/accjs-workbench-plus/js/');
+shell.cp(current_dir + '/dist/survey.min.*', 'dist/accjs-workbench-plus/js/');
+
 
 //workgbench files
 shell.cp(current_dir + '/node_modules/mousetrap/mousetrap.min.js', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/workbench.min.js', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/workbench.min.js.map', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/options.min.js', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/options.min.js.map', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/hotkey-options.min.js', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/hotkey-options.min.js.map', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/workshift-mobile.min.js', 'dist/accjs-workbench/js/');
-shell.cp(current_dir + '/dist/workshift-mobile.min.js.map', 'dist/accjs-workbench/js/');
+shell.cp(current_dir + '/dist/workbench.min.*', 'dist/accjs-workbench/js/');
+shell.cp(current_dir + '/dist/*options.min.*', 'dist/accjs-workbench/js/');
+shell.cp(current_dir + '/dist/workshift-mobile.min.*', 'dist/accjs-workbench/js/');
+
 
 //alicert files
 shell.cp(current_dir + '/node_modules/mousetrap/mousetrap.min.js', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/exam.min.js', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/exam.min.js.map', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/learning.min.js', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/learning.min.js.map', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/survey.min.js', 'dist/accjs-alicert/js/');
-shell.cp(current_dir + '/dist/survey.min.js.map', 'dist/accjs-alicert/js/');
+shell.cp(current_dir + '/dist/exam.min.*', 'dist/accjs-alicert/js/');
+shell.cp(current_dir + '/dist/learning.min.*', 'dist/accjs-alicert/js/');
+shell.cp(current_dir + '/dist/survey.min.*', 'dist/accjs-alicert/js/');
 
-
-//shell.cd(current_dir);
-shell.echo('done');
+shell.echo('compressing the files');
+compressing.zip.compressDir(current_dir + '/dist/accjs-workbench-plus', current_dir + '/dist/accjs-workbench-plus.zip').then(() => {
+console.log('accjs-workbench-plus has compressed.');
+});
+compressing.zip.compressDir(current_dir + '/dist/accjs-workbench', current_dir + '/dist/accjs-workbench.zip').then(() => {
+console.log('accjs-workbench has compressed.');
+});
+compressing.zip.compressDir(current_dir + '/dist/accjs-alicert', current_dir + '/dist/accjs-alicert.zip').then(() => {
+console.log('accjs-alicert has compressed.');
+});

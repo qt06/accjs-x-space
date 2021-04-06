@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/qt06/accjs-x-space#readme",
   "devDependencies": {
+    "compressing": "^1.5.1",
     "minimist": "^1.2.5",
     "rollup": "^2.21.0",
     "rollup-plugin-node-resolve": "^5.2.0",

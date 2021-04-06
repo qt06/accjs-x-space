@@ -231,5 +231,11 @@ return false;
 		}
 	});
 
+Mousetrap.bind('alt+7', function() {
+document.querySelector('.ant-drawer-header .anticon-close').click();
+});
+Mousetrap.bind('alt+8', function() {
+document.querySelector('.ant-drawer-header button').focus();
+});
 
 accjsMutationObserver(workBenchProcess);

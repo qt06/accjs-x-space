@@ -21,7 +21,6 @@ export default [
 build('workbench'),
 build('options'),
 build('hotkey-options'),
-build('workshift-options'),
 build('workshift-mobile'),
 build('exam'),
 build('survey'),
