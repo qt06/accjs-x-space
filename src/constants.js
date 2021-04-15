@@ -60,6 +60,7 @@ const navLabels = {
 "设置": "system/xspace-bss",
 "我的小程序……": "system/xapp-market",
 "意见反馈": "xspace-feedback-btn",
+"更多": "more-btn",
 "网络状态": "xspace-network-status",
 "刷新": "xspace-logo",
 "我的小程序……": "xapp-container",

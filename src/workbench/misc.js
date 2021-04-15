@@ -30,9 +30,10 @@ $('.ant-menu-item')
 //$('li[role=menuitem]').removeAttr('role');
 //$('.react-contextmenu-item').removeAttr('role');
 //$('.anticon, .ant-tabs-tab-prev-icon, .ant-tabs-tab-next-icon, .assistant-solution-iconfont')
-//.attr({
-//"aria-hidden": "true"
-//});
+$('i[aria-label*="图标"]:not(.' + accjsHas + ')')
+.attr({
+"aria-hidden": "true"
+});
 $('.ant-modal-wrap div[tabindex]').removeAttr('tabindex');
 $('input.ant-calendar-range-picker-input').removeAttr('tabindex');
 //misc

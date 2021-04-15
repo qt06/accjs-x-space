@@ -9,7 +9,7 @@ $('a[href*="system"]:not(.' + accjsHas + ')')
 .attr({
 "title": function() {return getAlt(navs, $(this).attr('href')); }
 });
-$('.xspace-logo:not(.' + accjsHas + '), a.xspace-network-status:not(.' + accjsHas + '), a.xspace-feedback-btn:not(.' + accjsHas + '), .user-profile .profile-avatar:not(.' + accjsHas + ')')
+$('.xspace-logo:not(.' + accjsHas + '), a.more-btn:not(.' + accjsHas + '), a.xspace-network-status:not(.' + accjsHas + '), a.xspace-feedback-btn:not(.' + accjsHas + '), .user-profile .profile-avatar:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({
 "tabindex": "0",

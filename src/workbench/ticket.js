@@ -14,6 +14,20 @@ $('.ant-pagination li').addClass(accjsClick).attr({
 "role": "link",
 "tabindex": "0"
 });
+$('.audio-playbar-control i:not(.' + accjsHas + ')').addClass(accjsHas + ' ' + accjsClick).attr({
+"tabindex": "0",
+"role": "button",
+"aria-label": "播放/暂停"
+});
+$('a span[data-spm-anchor-id]:not(.' + accjsHas + ')').each(function() {
+if(this.innerText == '听录音') {
+$(this).addClass(accjsHas + ' ' + accjsClick)
+.attr({
+"tabindex": "0",
+"role": "button"
+});
+}
+});
 };
 //ticket end
 export {
