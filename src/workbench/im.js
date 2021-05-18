@@ -26,7 +26,7 @@ let alt = '';
 if(this.hasAttribute('alt')) {
 alt = this.getAttribute('alt');
 }
-if(alt.trim() == '') {
+if(alt.trim() == '' || /^\d+$/.test(alt)) {
 alt = '图片';
 }
 return alt;
@@ -80,8 +80,8 @@ $('.tool-bar button[data-title]:not(.' + accjsHas + ')').addClass(accjsClick + '
 //transfer
 $('.tool-bar .icon-export:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
 "aria-label": "转交会话",
-"role": "button",
-"tabindex": "-1"
+"role": "link",
+"tabindex": "0"
 });
 $('[data-tooltip=转交]')
 .attr('data-' + accjsWaitingFocus, '.im-transfer-popover');
@@ -93,8 +93,8 @@ $('.chat-transfer-form .ant-input').attr({
 //close conversation
 $('.tool-bar .close-session:not(.' + accjsHas + ')').addClass(accjsClick + ' ' + accjsHas).attr({
 "aria-label": "关闭会话",
-"role": "button",
-"tabindex": "-1"
+"role": "link",
+"tabindex": "0"
 }).attr('data-' + accjsWaitingFocus, '.ant-popover-buttons .ant-btn-primary');
 $('[data-tooltip=结束]')
 .attr('data-' + accjsWaitingFocus, '.close-confirm .ant-btn-primary');
@@ -117,6 +117,24 @@ $('[contenteditable="true"]:not(.' + accjsHas + ')')
 "tabindex": "0",
 "role": "textbox"
 });
+$('[class*="src-apps-MemberCard-components-MemberSwapEntry-_index-module_sIcon"]:not(.' + accjsHas + ')').addClass(accjsHas + ' ' + accjsClick).attr({
+"tabindex": "0",
+"role": "button",
+"aria-label": "切换"
+});
+$('.ant-select-selection .ant-select-arrow:not(.' + accjsHas + ')').addClass(accjsHas + ' ' + accjsClick).attr({
+"tabindex": "0",
+"role": "button",
+"aria-label": "展开"
+});
+//call phone
+$('.ant-form-item-control i.anticon-phone').addClass(accjsHas + ' ' + accjsClick).attr({
+"role": "button",
+"tabindex": "0",
+"aria-label": "拨打"
+});
+//end call phone
+
 //solp end
 };
 export {

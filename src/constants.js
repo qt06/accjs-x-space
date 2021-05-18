@@ -9,11 +9,13 @@ yw: 'alt+4',
 fc: 'alt+3',
 search_input: 'alt+2',
 sop: 'alt+x',
-next_cell_first: 'ctrl+right',
-previous_cell_first: 'ctrl+left',
-next_cell_second: 'ctrl+down',
-previous_cell_second: 'ctrl+up',
-line_up: 'alt+a'
+next_cell_first: 'ctrl+shift+right',
+previous_cell_first: 'ctrl+shift+left',
+next_cell_second: 'ctrl+shift+down',
+previous_cell_second: 'ctrl+shift+up',
+line_up: 'alt+a',
+double_step: 'alt+s',
+clear_search: 'alt+7'
 };
 const hotkeyLabels = {
 message_input: '消息输入框',
@@ -30,7 +32,9 @@ next_cell_first: '九宫格：下一个一级菜单项目',
 previous_cell_first: '九宫格：上一个一级菜单项目',
 next_cell_second: '九宫格：下一个二级菜单项目',
 previous_cell_second: '九宫格：上一个二级菜单项目',
-line_up: '热线定位到排队'
+line_up: '热线定位到排队',
+double_step: '双步转',
+clear_search: '清空搜索'
 };
 const hotkeySelectorConfig = {
 message_input: ['.chat-input .editable'],
@@ -43,7 +47,9 @@ next_cell_first: [''],
 previous_cell_first: [''],
 next_cell_second: [''],
 previous_cell_second: [''],
-line_up: ['']
+line_up: [''],
+double_step: [''],
+clear_search: []
 };
 
 const navLabels = {

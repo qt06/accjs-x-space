@@ -198,6 +198,16 @@ els[0].focus();
 return false;
 });
 			break;
+			case 'double_step':
+Mousetrap.bind(items[it], function() {
+$('.transfer-btns-group button').each(function() {
+if(this.innerText.includes('双步转')) {
+this.focus();
+return false;
+}
+});
+});
+			break;
 // 9 cells
 			case 'next_cell_first':
 Mousetrap.bind(items[it], function() {
@@ -224,6 +234,14 @@ return false;
 });
 			break;
 //9 cells end
+			case 'clear_search':
+Mousetrap.bind(items[it], function() {
+let btn = $('.ant-drawer-header button');
+if(btn.length) {
+btn[0].focus();
+}
+});
+			break;
 			default:
 				registerHotkey(items[it], ...hotkeySelectorConfig[it]);
 			break;
@@ -231,11 +249,5 @@ return false;
 		}
 	});
 
-Mousetrap.bind('alt+7', function() {
-document.querySelector('.ant-drawer-header .anticon-close').click();
-});
-Mousetrap.bind('alt+8', function() {
-document.querySelector('.ant-drawer-header button').focus();
-});
 
 accjsMutationObserver(workBenchProcess);

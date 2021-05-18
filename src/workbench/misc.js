@@ -13,7 +13,7 @@ $('.im-bot-widget-index-popover span, .trainning-popover-menu span')
 //misc
 //don't switch the position of the below two lines
 $('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation]').removeAttr('tabindex');
-$('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
+$('[role=combobox], [role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
 $('[role=tab]:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({
@@ -25,7 +25,7 @@ $('.ant-menu-item')
 .addClass(accjsClick)
 .attr({
 "role": "button",
-"tabindex": "0"
+"tabindex": "-1"
 });
 //$('li[role=menuitem]').removeAttr('role');
 //$('.react-contextmenu-item').removeAttr('role');
@@ -36,6 +36,20 @@ $('i[aria-label*="图标"]:not(.' + accjsHas + ')')
 });
 $('.ant-modal-wrap div[tabindex]').removeAttr('tabindex');
 $('input.ant-calendar-range-picker-input').removeAttr('tabindex');
+$('.audio-playbar-control i:not(.' + accjsHas + ')').addClass(accjsHas + ' ' + accjsClick).attr({
+"tabindex": "0",
+"role": "button",
+"aria-label": "播放/暂停"
+});
+$('a span[data-spm-anchor-id]:not(.' + accjsHas + ')').each(function() {
+if(this.innerText == '听录音') {
+$(this).addClass(accjsHas + ' ' + accjsClick)
+.attr({
+"tabindex": "0",
+"role": "button"
+});
+}
+});
 //misc
 };
 export {
