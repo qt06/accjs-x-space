@@ -27,6 +27,13 @@ $('.ant-menu-item')
 "role": "button",
 "tabindex": "-1"
 });
+$('.mr-fab__menu__icon')
+.addClass(accjsClick)
+.attr({
+"role": "button",
+"aria-label": function() {return $(this).parent().text();},
+"tabindex": "0"
+});
 //$('li[role=menuitem]').removeAttr('role');
 //$('.react-contextmenu-item').removeAttr('role');
 //$('.anticon, .ant-tabs-tab-prev-icon, .ant-tabs-tab-next-icon, .assistant-solution-iconfont')
