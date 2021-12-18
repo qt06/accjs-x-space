@@ -3,10 +3,15 @@ import $ from 'accjs-kit';
 const im = function() {
 //chat-message
 $('[class*=mc-groupName--]:not(.' + accjsHas + '), [class*=mc-infoDetail--]:not(.' + accjsHas + '), .chatting-list .sub-title:not(.' + accjsHas + '), .history-list .sub-title:not(.' + accjsHas + ')')
-.addClass(accjsHas)
+.addClass(accjsClick + ' ' + accjsHas)
 .attr({
 "role": "link",
 "tabindex": "0"
+});
+$('.ant-avatar img:not(.' + accjsHas + ')')
+.addClass(accjsHas)
+.attr({
+"aria-hidden": "true"
 });
 $('.chat-contact-item:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
@@ -122,11 +127,13 @@ $('[class*="src-apps-MemberCard-components-MemberSwapEntry-_index-module_sIcon"]
 "role": "button",
 "aria-label": "切换"
 });
+/**
 $('.ant-select-selection .ant-select-arrow:not(.' + accjsHas + ')').addClass(accjsHas + ' ' + accjsClick).attr({
 "tabindex": "0",
 "role": "button",
 "aria-label": "展开"
 });
+*/
 //call phone
 $('.ant-form-item-control i.anticon-phone').addClass(accjsHas + ' ' + accjsClick).attr({
 "role": "button",

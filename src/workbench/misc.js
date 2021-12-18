@@ -13,7 +13,8 @@ $('.im-bot-widget-index-popover span, .trainning-popover-menu span')
 //misc
 //don't switch the position of the below two lines
 $('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation]').removeAttr('tabindex');
-$('[role=combobox], [role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
+//[role=combobox], 
+$('[role=dialog], [role=grid], [role=tablist], [role=tabpanel], [role=presentation],[role=menu], [role=menuitem], [role=search]').removeAttr('role');
 $('[role=tab]:not(.' + accjsHas + ')')
 .addClass(accjsClick + ' ' + accjsHas)
 .attr({

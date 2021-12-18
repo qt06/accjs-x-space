@@ -92,12 +92,42 @@ break;
 return false;
 });
 			break;
+			case 'first_message':
+Mousetrap.bind(items[it], function() {
+let m = $('.chat-message, .chat-system-message');
+if(m.length > 0) {
+for(let pos = 0; pos < m.length; pos++) {
+if($.isVisible(m[pos])) {
+m[pos].focus();
+return false;
+}
+}
+}
+return false;
+});
+			break;
 			case 'last_message':
 Mousetrap.bind(items[it], function() {
 let m = $('.chat-message, .chat-system-message');
 if(m.length > 0) {
 for(let pos = m.length - 1;pos >= 0; pos--) {
 if($.isVisible(m[pos])) {
+m[pos].focus();
+return false;
+}
+}
+}
+return false;
+});
+			break;
+			case 'scene_title':
+Mousetrap.bind(items[it], function() {
+//let m = $('[class*="src-apps-AssistantPro-components-SceneList-_index-module_sceneTitle_"]');
+let m = $('[data-c-l-i="/scene-selector"]');
+if(m.length > 0) {
+for(let pos = 0; pos < m.length; pos++) {
+if($.isVisible(m[pos])) {
+m[pos].setAttribute('tabindex', '0');
 m[pos].focus();
 return false;
 }
@@ -196,6 +226,16 @@ if(els.length > 0 && $.isVisible(els[0])) {
 els[0].focus();
 }
 return false;
+});
+			break;
+			case 'order_detail':
+Mousetrap.bind(items[it], function() {
+$('.ant-tabs-tab').each(function() {
+if(this.innerText.includes('订单详情')) {
+this.focus();
+return false;
+}
+});
 });
 			break;
 			case 'double_step':
